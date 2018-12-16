@@ -1,0 +1,20 @@
+Django tutorial, part 1 - descriptions of the initially created files:
+https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+
+
+Explain the parameters of the path() function; relevant things are well summarised at the bottom of this page: https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+
+
+Documentation for the various kinds of fields available for Django models:
+https://docs.djangoproject.com/en/2.1/ref/models/fields/
+
+
+How to use double underscores to perform field lookups via the API:
+https://docs.djangoproject.com/en/2.1/topics/db/queries/#field-lookups-intro
+
+
+Complete guideline for creating, retrieving, updating and deleting objects through database-abstraction API: https://docs.djangoproject.com/en/2.1/topics/db/queries/
+
+
+Timezone aware datetime objects:
+https://stackoverflow.com/questions/37527186/retrieve-timezone-aware-datetimefield-in-django

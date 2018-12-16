@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audiobooks app - made in Django</title>
+</head>
+<body>
+
+    <h3>{{ audiobook.title }}</h3>
+    Authored by: <strong>{{ audiobook.author }}</strong><br>
+    Narrated by: <strong>{{ audiobook.narrator }}</strong><br>
+    Length: <strong>{{ audiobook.pprint_length }}</strong><br>
+    Date of release: <strong>{{ audiobook.pprint_date_released }}</strong>
+
+    <h4>Reviews:</h4>
+    {% if audiobook.review_set.all.count > 0 %}
+        <ul>
+        {% for review in audiobook.review_set.all %}
+            <li><strong>{{ review.rating }} star{{ review.rating|pluralize }}</strong>,
+                comment: {{ review.comment }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Still no reviews</p>
+    {% endif %}
+
+    {% if error_msg %}
+        <h4>ERROR: {{ error_msg }}</h4>
+    {% endif %}
+
+    <h4>Add a new review:</h4>
+    <form action="{% url 'audiobooks:review' audiobook.id %}" method="post">
+        {% csrf_token %}
+        <label for="rating">Rating (1-5):</label><br>
+        <input type="text" name="rating"><br>
+        <label for="comment">Comments:</label><br>
+        <input type="text" name="comment"><br>
+        <input type="submit" value="Add review">
+    </form>
+
+    <br>
+    <p><a href="{% url 'audiobooks:index' %}">Back to the list of recent audiobooks</a></p>
+
+</body>
+</html>

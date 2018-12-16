@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audiobooks app - made in Django</title>
+</head>
+<body>
+
+    {% if latest_audiobooks %}
+        <h3>Recently released audiobooks</h3>
+        <ul>
+            {% for book in latest_audiobooks %}
+                <li><a href="{% url 'audiobooks:details' book.id %}">{{ book.title }}</a><br/></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No audiobook available</p>
+    {% endif %}
+
+</body>
+</html>
